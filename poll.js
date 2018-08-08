@@ -36,6 +36,11 @@ module.exports = function (robot) {
         let options = [];
 
         matches = res.match[2].split(',');
+        if (matches.length < 2) {
+            res.send('Provide more than one option.');
+            return;
+        }
+
         for (var key in matches) {
             if (matches.hasOwnProperty(key)) {
                 const trimmed = matches[key].trim();
