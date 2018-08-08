@@ -8,12 +8,12 @@
 //   None
 //
 // Commands:
-//   !poll, "question?", "option 1", "option 2" 
+//   !poll question?, option 1, option 2
 //
 
 module.exports = function (robot) {
 
-    const route = new RegExp(/((["'])(?:(?=(\\?))\3.)*?\2)/g);
+    const route = new RegExp(/^!poll ([^,]+),(.*)$/g);
         
     robot.hear(route.source, function (res) {
 
@@ -31,20 +31,16 @@ module.exports = function (robot) {
             ':ten:'
         ];
 
-        let title = '';
+        const title = res.match[1];
+
         let options = [];
 
-        const reg = /([^,]+)/g;
-
-        matches = res.match.input.match(reg);
+        matches = res.match[2].split(',');
         for (var key in matches) {
             if (matches.hasOwnProperty(key)) {
-                if (key == 0) continue;
-                else if (key == 1) {
-                    title = matches[key].replace(/['"]+/g, '');
-                }
-                else if(key > 1){
-                    options.push(emojis[(options.length + 1)] + ' ' + matches[key].replace(/['"]+/g, ''));
+                const trimmed = matches[key].trim();
+                if (trimmed) {
+                    options.push(emojis[(options.length + 1)] + ' ' + trimmed);
                 }
             }
         }
