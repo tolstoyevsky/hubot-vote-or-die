@@ -17,5 +17,8 @@
   },
   "bugs": {
     "url": "https://github.com/tolstoyevsky/hubot-vote-or-die/issues"
+  },
+  "dependencies": {
+    "uuidv4": "^1.0.1"
   }
 }
