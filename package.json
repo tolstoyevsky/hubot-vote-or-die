@@ -1,0 +1,21 @@
+{
+  "name": "hubot-vote-or-die",
+  "description": "Hubot script for building polls",
+  "version": "0.0.1",
+  "authors": [
+    "Ilya Masliev <i.masliev@wis.eu.com>",
+    "Evgeny Golyshev <eugulixes@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tolstoyevsky/hubot-vote-or-die.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tolstoyevsky/hubot-vote-or-die/issues"
+  }
+}
