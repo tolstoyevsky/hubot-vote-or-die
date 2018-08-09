@@ -7,7 +7,7 @@ The name of the script was inspired by the song «[Vote or Die!](http://southpar
 ## Features
 
 * Emojis-based.
-* The bot prepares in advance all the necessary emojis (`:0:`, `:1:`, `:2:`, etc), putting them under the polls to simplify searching for them to vote.
+* The bot prepares in advance all the necessary emojis (`:zero:`, `:one:`, `:two:`, etc), putting them under the polls to simplify searching for them to vote.
 
 ## Authors
 
