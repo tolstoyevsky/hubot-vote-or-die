@@ -29,7 +29,8 @@ module.exports = function (robot) {
             ':seven:',
             ':eight:',
             ':nine:',
-            ':ten:'
+            ':keycap_ten:',
+            ':keycap_asterisk:',
         ];
 
         const title = res.match[1];
@@ -39,6 +40,11 @@ module.exports = function (robot) {
         matches = res.match[2].split(',');
         if (matches.length < 2) {
             res.send('Provide more than one option.');
+            return;
+        }
+
+        if (matches.length > emojis.length) {
+            res.send(`The maximum number of options is limited to ${emojis.length}.`);
             return;
         }
 
