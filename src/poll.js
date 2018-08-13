@@ -48,9 +48,9 @@ module.exports = function (robot) {
             return;
         }
 
-        for (var key in matches) {
+        for (const match of matches) {
             if (matches.hasOwnProperty(key)) {
-                const trimmed = matches[key].trim();
+                const trimmed = match.trim();
                 if (trimmed) {
                     options.push(emojis[(options.length)] + ' ' + trimmed);
                 }
