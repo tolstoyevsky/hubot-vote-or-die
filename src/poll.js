@@ -37,6 +37,7 @@ module.exports = function (robot) {
 
         let options = [];
 
+        // The object which represents a poll message.
         let msg = {};
 
         matches = res.match[2].split(',');
@@ -57,6 +58,7 @@ module.exports = function (robot) {
             }
         }
 
+        // Compose and send the poll message (containing the question and options).
         msg.msg = '_Please vote using reactions_';
         msg._id = uuid4();
         msg.attachments = [
