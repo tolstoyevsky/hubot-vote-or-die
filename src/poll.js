@@ -37,6 +37,8 @@ module.exports = function (robot) {
 
         let options = [];
 
+        let msg = {};
+
         matches = res.match[2].split(',');
         if (matches.length < 2) {
             res.send('Provide more than one option.');
@@ -55,7 +57,6 @@ module.exports = function (robot) {
             }
         }
 
-        var msg = {};
         msg.msg = '_Please vote using reactions_';
         msg._id = uuid4();
         msg.attachments = [
