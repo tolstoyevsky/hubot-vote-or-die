@@ -8,7 +8,7 @@
 //   None
 //
 // Commands:
-//   !poll question?, option 1, option 2
+//   !poll question?, option 1, option 2 - builds a poll
 //
 
 module.exports = function (robot) {
