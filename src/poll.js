@@ -52,7 +52,7 @@ module.exports = function (robot) {
             if (matches.hasOwnProperty(key)) {
                 const trimmed = match.trim();
                 if (trimmed) {
-                    options.push(emojis[(options.length)] + ' ' + trimmed);
+                    options.push(`${emojis[options.length]} ${trimmed}`);
                 }
             }
         }
