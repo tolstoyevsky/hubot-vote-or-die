@@ -59,12 +59,12 @@ module.exports = function (robot) {
         msg.msg = '_Please vote using reactions_';
         msg._id = uuid4();
         msg.attachments = [
-                {
-                    color: '#0000DD',
-                    title: title,
-                    text: options.join('\n')
-                }
-            ];
+            {
+                color: '#0000DD',
+                title: title,
+                text: options.join('\n')
+            }
+        ];
 
         res.send(msg);
 
