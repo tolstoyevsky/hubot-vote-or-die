@@ -1,9 +1,6 @@
 // Description:
 //   Poll_bot
 //
-// Dependencies:
-//   None
-//
 // Configuration:
 //   None
 //
