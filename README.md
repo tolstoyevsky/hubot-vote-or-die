@@ -14,6 +14,20 @@ The name of the script was inspired by the song «[Vote or Die!](http://southpar
 * The bot prepares in advance all the necessary emojis (`:zero:`, `:one:`, `:two:`, etc), putting them under the polls to simplify searching for them to vote.
 * Up to 12 possible options.
 
+## Installation
+
+In hubot project repo, run:
+
+`npm install git+https://github.com/tolstoyevsky/hubot-vote-or-die --save`
+
+Then add **hubot-vote-or-die** to your `external-scripts.json`:
+
+```json
+[
+  "hubot-vote-or-die"
+]
+```
+
 ## Authors
 
 See [AUTHORS](AUTHORS.md).
