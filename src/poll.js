@@ -77,12 +77,23 @@ module.exports = function (robot) {
                 })
             }
 
+            const retry = (retries, fn) =>
+                fn().catch(async (err) => {
+                    if (retries > 1) {
+                        retry(retries - 1, fn);
+
+                        await delay(1000);
+                    } else {
+                        Promise.reject(err);
+                    }
+                });
+
             // Wait till the message is in the channel.
             // TODO: probably there is a better approach how to achieve this.
             await delay(5000);
 
             for (let i = 0; i < optionsNumber; i++) {
-                robot.adapter.callMethod('setReaction', emojis[i], msgId);
+                retry(3, () => {return robot.adapter.callMethod('setReaction', emojis[i], msgId)});
 
                 await delay(1000);
             }
