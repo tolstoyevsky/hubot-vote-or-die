@@ -13,7 +13,7 @@ module.exports = function (robot) {
 
     const route = new RegExp(/^!poll ([^,]+),(.*)$/g);
         
-    robot.hear(route.source, function (res) {
+    robot.hear(route.source, async (res) => {
 
         const emojis = [
             ':zero:',
@@ -68,36 +68,34 @@ module.exports = function (robot) {
 
         res.send(msg);
 
-        (async function(msgId, emojis, optionsNumber) {
-            const delay = (ms) => {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve()
-                    }, ms)
-                })
-            }
+        const delay = (ms) => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve()
+                }, ms)
+            })
+        }
 
-            const retry = (retries, fn) =>
-                fn().catch(async (err) => {
-                    if (retries > 1) {
-                        retry(retries - 1, fn);
+        const retry = (retries, fn) =>
+            fn().catch(async (err) => {
+                if (retries > 1) {
+                    retry(retries - 1, fn);
 
-                        await delay(1000);
-                    } else {
-                        Promise.reject(err);
-                    }
-                });
+                    await delay(1000);
+                } else {
+                    Promise.reject(err);
+                }
+            });
 
-            // Wait till the message is in the channel.
-            // TODO: probably there is a better approach how to achieve this.
-            await delay(5000);
+        // Wait till the message is in the channel.
+        // TODO: probably there is a better approach how to achieve this.
+        await delay(5000);
 
-            for (let i = 0; i < optionsNumber; i++) {
-                retry(3, () => {return robot.adapter.callMethod('setReaction', emojis[i], msgId)});
+        for (let i = 0; i < options.length; i++) {
+            retry(3, () => {return robot.adapter.callMethod('setReaction', emojis[i], msg._id)});
 
-                await delay(1000);
-            }
-        })(msg._id, emojis, options.length);
+            await delay(1000);
+        }
     });
 };
 
