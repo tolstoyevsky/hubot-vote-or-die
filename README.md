@@ -1,3 +1,5 @@
+[![build](https://travis-ci.org/tolstoyevsky/hubot-vote-or-die.svg?branch=master)](https://travis-ci.org/tolstoyevsky/hubot-vote-or-die)
+
 # hubot-vote-or-die
 
 Hubot script for building polls for your [Rocket.Chat](https://rocket.chat) users.
