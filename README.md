@@ -1,4 +1,4 @@
-[![build](https://travis-ci.org/tolstoyevsky/hubot-vote-or-die.svg?branch=master)](https://travis-ci.org/tolstoyevsky/hubot-vote-or-die)
+[![build](https://travis-ci.com/tolstoyevsky/hubot-vote-or-die.svg?branch=master)](https://travis-ci.org/tolstoyevsky/hubot-vote-or-die)
 
 # hubot-vote-or-die
 
