@@ -19,6 +19,8 @@
     "url": "https://github.com/tolstoyevsky/hubot-vote-or-die/issues"
   },
   "dependencies": {
+    "hubot-routines": "https://github.com/tolstoyevsky/hubot-routines.git",
+    "moment": "^2.22.2",
     "uuidv4": "^1.0.1"
   },
   "devDependencies": {

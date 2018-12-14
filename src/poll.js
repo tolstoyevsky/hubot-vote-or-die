@@ -8,6 +8,8 @@
 //   !poll question?, option 1, option 2 - builds a poll
 //
 
+const routines = require('hubot-routines')
+
 module.exports = function (robot) {
   const uuid4 = require('uuidv4')
   const route = new RegExp(/^!poll ([^,]+),(.*)$/g)
@@ -66,20 +68,12 @@ module.exports = function (robot) {
 
     res.send(msg)
 
-    const delay = (ms) => {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve()
-        }, ms)
-      })
-    }
-
     const retry = (retries, fn) =>
       fn().catch(async (err) => {
         if (retries > 1) {
           retry(retries - 1, fn)
 
-          await delay(1000)
+          await routines.delay(1000)
         } else {
           Promise.reject(err)
         }
@@ -87,12 +81,12 @@ module.exports = function (robot) {
 
     // Wait till the message is in the channel.
     // TODO: probably there is a better approach how to achieve this.
-    await delay(5000)
+    await routines.delay(5000)
 
     for (let i = 0; i < options.length; i++) {
       retry(3, () => { return robot.adapter.callMethod('setReaction', emojis[i], msg._id) })
 
-      await delay(1000)
+      await routines.delay(1000)
     }
   })
 }
