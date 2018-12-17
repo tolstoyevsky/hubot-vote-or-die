@@ -15,6 +15,7 @@ The name of the script was inspired by the song «[Vote or Die!](http://southpar
 * Emojis-based.
 * The bot prepares in advance all the necessary emojis (`:zero:`, `:one:`, `:two:`, etc), putting them under the polls to simplify searching for them to vote.
 * Up to 12 possible options.
+* It's possible to build polls sending private messages to the bot. It helps to make a kind of preview of the future polls (note that to use this feature `RESPOND_TO_DM` must be set to `true`).
 
 ## Installation
 

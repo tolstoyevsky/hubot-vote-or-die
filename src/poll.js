@@ -8,11 +8,10 @@
 //   !poll question?, option 1, option 2 - builds a poll
 //
 
-const routines = require('hubot-routines')
-
 module.exports = function (robot) {
   const uuid4 = require('uuidv4')
-  const route = new RegExp(/^!poll ([^,]+),(.*)$/g)
+  const route = new RegExp('^(@?(' + robot.name + '||' + robot.alias + ') )?!poll ([^,]+),(.*)$', 'g')
+  const routines = require('hubot-routines')
 
   robot.hear(route.source, async (res) => {
     const emojis = [
@@ -30,8 +29,8 @@ module.exports = function (robot) {
       ':keycap_asterisk:'
     ]
 
-    const title = res.match[1]
-    const matches = res.match[2].split(',')
+    const title = res.match[3]
+    const matches = res.match[4].split(',')
 
     let options = []
 
