@@ -10,7 +10,7 @@
 
 module.exports = function (robot) {
   const uuid4 = require('uuidv4')
-  const route = new RegExp('^(@?(' + robot.name + '||' + robot.alias + ') )?!poll ([^,]+),(.*)$', 'g')
+  const route = new RegExp('^(@?(' + robot.name + '||' + robot.alias + ') )?!poll ([^,]+),(.*)[\n]*$', 'g')
   const routines = require('hubot-routines')
 
   robot.hear(route.source, async (res) => {
